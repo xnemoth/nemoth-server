@@ -12,7 +12,7 @@ const connectDB = async () => {
     const conn = await mongoose.connect(uri);
     console.log(`database connected: ${conn.connection.host}`);
   } catch (error) {
-    console.log(error);
+    console.log(error, process.env.MONGODB_CONNECT_URI);
     process.exit(1); // Exit process with failure status 1 in case of error
   }
 };
