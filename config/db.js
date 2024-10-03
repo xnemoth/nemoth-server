@@ -1,18 +1,20 @@
 const mongoose = require("mongoose");
 
-const MONGODB_CONNECT_URI = process.env.MONGODB_CONNECT_URI;
+// const MONGODB_CONNECT_URI = process.env.MONGODB_CONNECT_URI;
+const MONGODB_CONNECT_URI = "mongodb+srv://tronghieu1042:%243F8%40N5mL2%5Egj%5E%25Z@nemoth.k06s3.mongodb.net/nemoth?retryWrites=true&w=majority&appName=nemoth";
 
 // Connect DB
 const connectDB = async () => {
   try {
-    const uri = process.env.MONGODB_CONNECT_URI;
+    // const uri = process.env.MONGODB_CONNECT_URI;
+    const uri = MONGODB_CONNECT_URI;
     if (!uri) {
       throw new Error("No data URL");
     }
     const conn = await mongoose.connect(uri);
     console.log(`database connected: ${conn.connection.host}`);
   } catch (error) {
-    console.log(error, process.env.MONGODB_CONNECT_URI);
+    console.log(error, MONGODB_CONNECT_URI);
     process.exit(1); // Exit process with failure status 1 in case of error
   }
 };
