@@ -6,6 +6,12 @@ const connectDB = require("./config/db");
 const app = express();
 app.use(express.json());
 
+app.use(cors({
+  origin: "https://slug-panel.onrender.com"
+}
+))
+app.options('*', cors())
+
 connectDB();
 
 const userRoutes = require("./routes/userRoutes");
