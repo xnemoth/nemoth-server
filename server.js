@@ -2,13 +2,22 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const express = require("express");
 const cors = require("cors");
+const allowedOrigins = ['']
 const connectDB = require("./config/db");
 
 const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: "https://slug-panel.onrender.com"
+  origin: "*",
+  // origin: function (origin, callback) {
+  //   if (!origin || allowedOrigins.includes(origin)) {
+  //     callback(null, true);
+  //   } else {
+  //     callback(new Error('Not allowed by CORS'));
+  //   }
+  // },
+  credentials: true,
 }
 ))
 app.options('*', cors())
