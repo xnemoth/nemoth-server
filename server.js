@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: "*",
+  origin: "*", // allow all --just for testing with local
   // origin: function (origin, callback) {
   //   if (!origin || allowedOrigins.includes(origin)) {
   //     callback(null, true);
